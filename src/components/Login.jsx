@@ -35,7 +35,9 @@ const Login = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-wide bg-[#682254] text-white">Login</button>
+                  <button className="btn btn-wide bg-[#682254] hover:bg-[#86216a] text-white">
+                    Login
+                  </button>
                 </div>
               </form>
             </div>
