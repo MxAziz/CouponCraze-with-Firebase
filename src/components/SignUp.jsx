@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 const SignUp = () => {
   return (
     <div>
-      <div className="hero bg-base-200 min-h-screen mt-4">
+      <div className="hero bg-base-200 min-h-screen mt-8">
         <div className="hero-content flex-col ">
-          <div className="text-4xl font-bold text-center mt-4">Sign Up</div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="text-4xl font-bold text-center mt-8">Sign Up</div>
+          <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl">
             <form className="card-body">
               <div className="form-control">
                 <label className="label">

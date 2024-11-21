@@ -20,29 +20,36 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element:<Home></Home>,
+        element: <Home></Home>,
+        loader: () => {
+          return fetch("/data.json")
+            .then((response) => response.json())
+            .catch((error) => {
+              console.error("Error fetching data:", error);
+            });
+        },
       },
       {
         path: "/brands",
-        element:<Brands></Brands>,
+        element: <Brands></Brands>,
       },
       {
         path: "/profile",
-        element:<MyProfile></MyProfile>,
+        element: <MyProfile></MyProfile>,
       },
       {
         path: "/about",
-        element:<AboutDev></AboutDev>,
+        element: <AboutDev></AboutDev>,
       },
       {
         path: "/login",
-        element:<Login></Login>,
+        element: <Login></Login>,
       },
       {
         path: "/signup",
-        element: <SignUp></SignUp>
-      }
-    ]
+        element: <SignUp></SignUp>,
+      },
+    ],
   },
 ]);
 
