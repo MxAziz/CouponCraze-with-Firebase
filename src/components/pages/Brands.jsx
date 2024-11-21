@@ -2,7 +2,7 @@ import React from 'react';
 
 const Brands = () => {
     return (
-        <div>
+        <div className='mt-[65px]'>
             this is brands.
         </div>
     );
