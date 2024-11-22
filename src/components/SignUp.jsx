@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const SignUp = () => {
 
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -17,6 +18,8 @@ const SignUp = () => {
     createUser(email, password)
       .then(result => {
         console.log(result.user);
+        e.target.reset();
+        navigate('/')
 
       })
       .catch(error => {
@@ -51,7 +54,7 @@ const SignUp = () => {
                 <input
                   type="text"
                   name="photo"
-                  placeholder="Photo URL"
+                  placeholder="Photo-URL"
                   className="input input-bordered"
                   required
                 />
@@ -61,7 +64,7 @@ const SignUp = () => {
                 <input
                   type="email"
                   name="email"
-                  placeholder="email"
+                  placeholder="Email"
                   className="input input-bordered"
                   required
                 />
@@ -73,7 +76,7 @@ const SignUp = () => {
                 <input
                   type="password"
                   name="password"
-                  placeholder="password"
+                  placeholder="Password"
                   className="input input-bordered"
                   required
                 />

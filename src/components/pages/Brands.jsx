@@ -21,7 +21,7 @@ const Brands = () => {
             </div>
 
             {/* all brands card */}
-            <div className=" w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
+            <div className=" w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 my-10">
                 {
                     brandsItem.map(allBrands => <AllBrands key={allBrands._id} allBrands={allBrands}></AllBrands>)
                 }

@@ -18,6 +18,7 @@ const Login = () => {
       .then(result => {
       console.log(result.user);
         e.target.reset();
+        navigate("/");
       })
       .catch(error => {
       console.log("ERROR", error.message);
@@ -33,7 +34,7 @@ const Login = () => {
         .then((result) => {
           console.log(result);
           setUser(result.user.email);
-          // navigate('/')
+          navigate('/')
         })
         .catch((error) => {
           console.log("ERROR", error.message);

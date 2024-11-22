@@ -12,6 +12,7 @@ import Brands from './components/pages/Brands';
 import MyProfile from './components/pages/MyProfile';
 import AboutDev from './components/pages/AboutDev';
 import AuthProvider from './provider/AuthProvider';
+import PrivateRoute from './routes/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -44,7 +45,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <MyProfile></MyProfile>,
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/about",

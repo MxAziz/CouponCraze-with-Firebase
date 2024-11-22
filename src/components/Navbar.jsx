@@ -38,15 +38,17 @@ const Navbar = () => {
           Brands
         </NavLink>
       </li>
-      <li>
-        <NavLink className="" to={"/profile"}>
-          <img
-            className=" size-6"
-            src="https://img.icons8.com/?size=100&id=11740&format=png"
-          />
-          My Profile
-        </NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink className="" to={"/profile"}>
+            <img
+              className=" size-6"
+              src="https://img.icons8.com/?size=100&id=11740&format=png"
+            />
+            My Profile
+          </NavLink>
+        </li>
+      )}
       <li>
         <NavLink className="" to={"/about"}>
           <img
