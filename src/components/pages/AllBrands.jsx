@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 
 const AllBrands = ({ allBrands }) => {
 
-    console.log(allBrands);
+    // console.log(allBrands);
     const { _id, brand_logo, brand_name, description, isSaleOn, rating, } = allBrands;
 
     useEffect(() => {

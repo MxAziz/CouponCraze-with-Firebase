@@ -1,14 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const SignUp = () => {
+
+  const { createUser } = useContext(AuthContext);
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(name, photo, email, password);
+
+    createUser(email, password)
+      .then(result => {
+        console.log(result.user);
+
+      })
+      .catch(error => {
+        console.log(error.message);
+
+      })
+
+
+  }
+
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen mt-8">
         <div className="hero-content flex-col ">
           <div className="text-4xl font-bold text-center mt-8">Sign Up</div>
           <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl">
-            <form className="card-body">
+            <form onSubmit={handleSignUp} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>

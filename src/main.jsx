@@ -65,11 +65,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* <AuthProvider> */}
+    <AuthProvider>
       <RouterProvider
         router={router}
         future={{ v7_skipActionErrorRevalidation: true }}
       />
-    {/* </AuthProvider> */}
+    </AuthProvider>
   </StrictMode>
 );

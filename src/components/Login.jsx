@@ -1,7 +1,30 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Login = () => {
+
+  const {signInWithGoogle } = useContext(AuthContext);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  const handleGoogleSignIn = () => {
+    setUser(null);
+      signInWithGoogle()
+        .then((result) => {
+          console.log(result);
+          setUser(result.user.email);
+          // navigate('/')
+        })
+        .catch((error) => {
+          console.log("ERROR", error.message);
+          setUser(null);
+        });
+  }
+  console.log(user);
+
+
+
     return (
       <div>
         <div className="hero bg-base-200 min-h-screen">
@@ -43,7 +66,7 @@ const Login = () => {
                 </div>
                 <div className="divider">OR</div>
                 <div className="">
-                  <button className="btn btn-wide bg-[#682254] hover:bg-[#86216a] text-white">
+                  <button onClick={handleGoogleSignIn} className="btn btn-wide bg-[#682254] hover:bg-[#86216a] text-white">
                     Login with Google
                   </button>
                 </div>
@@ -59,6 +82,7 @@ const Login = () => {
                   </p>
                 </div>
               </form>
+              <h1>{ user && user}</h1>
             </div>
           </div>
         </div>
