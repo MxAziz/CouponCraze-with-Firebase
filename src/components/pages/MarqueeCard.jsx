@@ -1,9 +1,6 @@
 import React from 'react';
-import Marquee from 'react-fast-marquee';
 
 const MarqueeCard = ({ mCard }) => {
-
-    console.log(mCard);
 
     const { brand_name, brand_logo } = mCard;
 

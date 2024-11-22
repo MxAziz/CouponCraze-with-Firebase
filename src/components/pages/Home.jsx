@@ -20,29 +20,29 @@ const Home = () => {
         <Marquee pauseOnHover="true" speed={100}>
           <div className="flex space-x-8 w-full">
             {data.map((mCard) => (
-              <MarqueeCard mCard={mCard}></MarqueeCard>
+              <MarqueeCard key={mCard._id} mCard={mCard}></MarqueeCard>
             ))}
           </div>
         </Marquee>
       </div>
 
       {/* Brands on Sell */}
-      <div className=" mb-10 w-11/12 mx-auto">
+      <div className=" mb-4 w-11/12 mx-auto">
         <h1 className="text-4xl font-bold text-center my-10">Brands on Sell</h1>
-        <div className=" grid grid-cols-1 mx-auto md:grid-cols-3 lg:grid-cols-3 gap-8">
+        <div className=" grid justify-center items-center grid-cols-1 mx-auto md:grid-cols-3 lg:grid-cols-3 gap-8">
           {data.map(
-            (sell) => sell.isSaleOn && <BrandsOnSell sell={sell}></BrandsOnSell>
+            (sell) => sell.isSaleOn && <BrandsOnSell key={sell._id} sell={sell}></BrandsOnSell>
           )}
         </div>
       </div>
 
       {/* extra section  */}
-      <div className="flex gap-8 p-12 justify-center items-center ">
+      <div className="md:flex gap-8 p-12  justify-center items-center ">
         <div className="">
-          <h3 className=" text-4xl font-semibold border-l-8 border-[#9b287b] pl-4">
+          <h3 className=" text-2xl md:text-4xl font-semibold border-l-8 border-[#9b287b] pl-4">
             Seeking great deals? Over 10,000 offers listed!
           </h3>
-          <p className="text-2xl mt-4">
+          <p className="md:text-2xl mb-6 md:mb-0 mt-4">
             Find the latest promo codes, coupons and discounts from leading
             brands and stores.
           </p>
@@ -50,25 +50,25 @@ const Home = () => {
         <img src="https://www.collectoffers.com/images/img1.png" />
       </div>
       {/* extra section 01 */}
-      <div className="flex gap-8 p-12 justify-center items-center bg-[#F9F9F9]">
+      <div className="md:flex gap-8 p-12 justify-center items-center bg-[#F9F9F9]">
         <img src="https://www.collectoffers.com/images/img2.png" alt="" />
         <div className="">
-          <h3 className=" text-4xl font-semibold border-l-8 border-[#9b287b] pl-4">
+          <h3 className="text-2xl md:text-4xl mt-6 md:mt-0 font-semibold border-l-8 border-[#9b287b] pl-4">
             Great offers from your favourite stores
           </h3>
-          <p className="text-2xl mt-4">
+          <p className="md:text-2xl mt-4">
             You will never miss a single online deal with CollectOffers. Our
             store and brand pages feature top discounts and exclusives deals.
           </p>
         </div>
       </div>
       {/* extra section 02 */}
-      <div className="flex gap-8 p-12 justify-center items-center ">
+      <div className="md:flex gap-8 p-12 mb-10 justify-center items-center ">
         <div className="">
-          <h3 className=" text-4xl font-semibold border-l-8 border-[#9b287b] pl-4">
+          <h3 className=" text-2xl md:text-4xl font-semibold border-l-8 border-[#9b287b] pl-4">
             Apply the coupon to your basket and save money on your order!
           </h3>
-          <p className="text-2xl mt-4">
+          <p className="md:text-2xl mb-6 md:mb-0 mt-4">
             Simply click to reveal, visit the online store and apply your promo
             code to your basket.
           </p>

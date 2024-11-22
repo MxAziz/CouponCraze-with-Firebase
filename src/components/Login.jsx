@@ -41,6 +41,12 @@ const Login = () => {
                     Login
                   </button>
                 </div>
+                <div className="divider">OR</div>
+                <div className="">
+                  <button className="btn btn-wide bg-[#682254] hover:bg-[#86216a] text-white">
+                    Login with Google
+                  </button>
+                </div>
                 <div className="">
                   <p>
                     New to this website ?{" "}

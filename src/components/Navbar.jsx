@@ -6,21 +6,37 @@ const Navbar = () => {
     <>
       <li>
         <NavLink className="" to={"/"}>
+          <img
+            className=" size-6"
+            src="https://img.icons8.com/?size=100&id=83326&format=png&color=000000"
+          />
           Home
         </NavLink>
       </li>
       <li>
         <NavLink className="" to={"/brands"}>
+          <img
+            className=" size-6"
+            src="https://img.icons8.com/?size=100&id=qpWehCpFyOyb&format=png&color=000000"
+          />
           Brands
         </NavLink>
       </li>
       <li>
         <NavLink className="" to={"/profile"}>
+          <img
+            className=" size-6"
+            src="https://img.icons8.com/?size=100&id=11740&format=png"
+          />
           My Profile
         </NavLink>
       </li>
       <li>
         <NavLink className="" to={"/about"}>
+          <img
+            className=" size-6"
+            src="https://img.icons8.com/?size=100&id=14313&format=png&color=000000"
+          />
           About Dev
         </NavLink>
       </li>

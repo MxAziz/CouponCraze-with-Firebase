@@ -11,6 +11,7 @@ import Home from './components/pages/Home';
 import Brands from './components/pages/Brands';
 import MyProfile from './components/pages/MyProfile';
 import AboutDev from './components/pages/AboutDev';
+import AuthProvider from './provider/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: () => {
-          return fetch("/data.json")
+          return fetch("../data.json")
             .then((response) => response.json())
             .catch((error) => {
               console.error("Error fetching data:", error);
@@ -32,6 +33,14 @@ const router = createBrowserRouter([
       {
         path: "/brands",
         element: <Brands></Brands>,
+        loader: () => {
+          return fetch("../data.json")
+            .then((response) => response.json())
+            .catch((error) => {
+              console.error("Error fetching data:", error);
+              return { error: "Failed to fetch data" };
+            });
+        },
       },
       {
         path: "/profile",
@@ -56,6 +65,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    {/* <AuthProvider> */}
+      <RouterProvider
+        router={router}
+        future={{ v7_skipActionErrorRevalidation: true }}
+      />
+    {/* </AuthProvider> */}
   </StrictMode>
 );
