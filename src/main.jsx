@@ -13,6 +13,10 @@ import MyProfile from './components/pages/MyProfile';
 import AboutDev from './components/pages/AboutDev';
 import AuthProvider from './provider/AuthProvider';
 import PrivateRoute from './routes/PrivateRoute';
+// toast
+  import { ToastContainer } from "react-toastify";
+  import "react-toastify/dist/ReactToastify.css";
+import ForgotPassword from './components/ForgotPassword';
 
 const router = createBrowserRouter([
   {
@@ -23,24 +27,26 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => {
-          return fetch("../data.json")
-            .then((response) => response.json())
-            .catch((error) => {
-              console.error("Error fetching data:", error);
-            });
+        loader: async () => {
+          try {
+            const response = await fetch("../data.json");
+            return await response.json();
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
         },
       },
       {
         path: "/brands",
         element: <Brands></Brands>,
-        loader: () => {
-          return fetch("../data.json")
-            .then((response) => response.json())
-            .catch((error) => {
-              console.error("Error fetching data:", error);
-              return { error: "Failed to fetch data" };
-            });
+        loader: async () => {
+          try {
+            const response = await fetch("../data.json");
+            return await response.json();
+          } catch (error) {
+            console.error("Error fetching data:", error);
+            return { error: "Failed to fetch data" };
+          }
         },
       },
       {
@@ -63,6 +69,10 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp></SignUp>,
       },
+      {
+        path: "/forgot-password",
+        element: <ForgotPassword></ForgotPassword>
+      }
     ],
   },
 ]);
@@ -74,6 +84,18 @@ createRoot(document.getElementById("root")).render(
       <RouterProvider
         router={router}
         future={{ v7_skipActionErrorRevalidation: true }}
+      />
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={true}
+        draggable={true}
+        pauseOnHover={true}
+        theme="colored"
       />
     </AuthProvider>
   </StrictMode>

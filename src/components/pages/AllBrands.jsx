@@ -56,7 +56,7 @@ const AllBrands = ({ allBrands }) => {
             </div>
             <p>{description}</p>
             <div className="card-actions justify-between">
-              <button className="btn bg-[#6e2d5c] hover:bg-[#952876] text-white">
+              <button className="btn bg-[#82316b] hover:bg-[#952876] text-white">
                 View Coupons
               </button>
               <div className="">

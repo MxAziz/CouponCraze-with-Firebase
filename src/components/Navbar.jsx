@@ -1,6 +1,11 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { IoMdHome } from "react-icons/io";
+import { TbBrandShopee } from "react-icons/tb";
+import { MdEventNote } from "react-icons/md";
+import { ImProfile } from "react-icons/im";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
 
@@ -10,7 +15,7 @@ const Navbar = () => {
     signOutUser()
       .then(() => {
         console.log('sign out successful');
-
+        toast.info('Sign out successful');
       })
       .catch(error => {
         console.log('ERROR:', error);
@@ -22,39 +27,27 @@ const Navbar = () => {
     <>
       <li>
         <NavLink className="" to={"/"}>
-          <img
-            className=" size-6"
-            src="https://img.icons8.com/?size=100&id=83326&format=png&color=000000"
-          />
+          <IoMdHome />
           Home
         </NavLink>
       </li>
       <li>
         <NavLink className="" to={"/brands"}>
-          <img
-            className=" size-6"
-            src="https://img.icons8.com/?size=100&id=qpWehCpFyOyb&format=png&color=000000"
-          />
+          <TbBrandShopee></TbBrandShopee>
           Brands
         </NavLink>
       </li>
       {user && (
         <li>
           <NavLink className="" to={"/profile"}>
-            <img
-              className=" size-6"
-              src="https://img.icons8.com/?size=100&id=11740&format=png"
-            />
+            <ImProfile></ImProfile>
             My Profile
           </NavLink>
         </li>
       )}
       <li>
         <NavLink className="" to={"/about"}>
-          <img
-            className=" size-6"
-            src="https://img.icons8.com/?size=100&id=14313&format=png&color=000000"
-          />
+          <MdEventNote></MdEventNote>
           About Dev
         </NavLink>
       </li>
