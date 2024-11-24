@@ -5,7 +5,7 @@ import AllBrands from './AllBrands';
 const Brands = () => {
 
     const brandsItem = useLoaderData();
-    // console.log(brandsItem);
+    console.log(brandsItem);
 
 
     return (

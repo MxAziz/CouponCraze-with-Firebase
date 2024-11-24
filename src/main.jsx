@@ -1,23 +1,24 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from './components/ErrorPage';
-import MainLayout from './components/MainLayout';
-import Login from './components/Login';
-import SignUp from './components/SignUp';
-import Home from './components/pages/Home';
-import Brands from './components/pages/Brands';
-import MyProfile from './components/pages/MyProfile';
-import AboutDev from './components/pages/AboutDev';
-import AuthProvider from './provider/AuthProvider';
-import PrivateRoute from './routes/PrivateRoute';
+import ErrorPage from "./components/ErrorPage";
+import MainLayout from "./components/MainLayout";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import Home from "./components/pages/Home";
+import Brands from "./components/pages/Brands";
+import MyProfile from "./components/pages/MyProfile";
+import AboutDev from "./components/pages/AboutDev";
+import AuthProvider from "./provider/AuthProvider";
+import PrivateRoute from "./routes/PrivateRoute";
 // toast
-  import { ToastContainer } from "react-toastify";
-  import "react-toastify/dist/ReactToastify.css";
-import ForgotPassword from './components/ForgotPassword';
-import UpdateUser from './components/UpdateUser';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ForgotPassword from "./components/ForgotPassword";
+import UpdateUser from "./components/UpdateUser";
+import BrandDetails from "./components/pages/BrandDetails";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,15 @@ const router = createBrowserRouter([
         },
       },
       {
+        path: "/brands/:id",
+        loader:()=> fetch('../data.json'),
+        element: (
+          <PrivateRoute>
+            <BrandDetails></BrandDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/profile",
         element: (
           <PrivateRoute>
@@ -72,16 +82,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/forgot-password",
-        element: <ForgotPassword></ForgotPassword>
+        element: <ForgotPassword></ForgotPassword>,
       },
       {
-        path: '/updateUser',
-        element: <UpdateUser></UpdateUser>
-      }
+        path: "/updateUser",
+        element: <UpdateUser></UpdateUser>,
+      },
     ],
   },
 ]);
-
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

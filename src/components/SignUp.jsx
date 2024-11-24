@@ -119,7 +119,7 @@ const SignUp = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
-                  placeholder="Password"
+                  placeholder="New Password"
                   className="input input-bordered "
                   required
                 />

@@ -117,6 +117,11 @@ const Navbar = () => {
           )}
         </div>
       </div>
+      {
+        user && <>
+          <div className=" text-white text-center pb-3 font-bold text-xl">Welcome { user.displayName}</div>
+        </>
+      }
     </div>
   );
 };

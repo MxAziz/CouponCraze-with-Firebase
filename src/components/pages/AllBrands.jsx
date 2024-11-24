@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
+import Brands from './Brands';
 
 
 const AllBrands = ({ allBrands }) => {
@@ -56,9 +58,12 @@ const AllBrands = ({ allBrands }) => {
             </div>
             <p>{description}</p>
             <div className="card-actions justify-between">
-              <button className="btn bg-[#82316b] hover:bg-[#952876] text-white">
+              <Link
+                to={`/brands/${_id}`}
+                className="btn bg-[#82316b] hover:bg-[#952876] text-white"
+              >
                 View Coupons
-              </button>
+              </Link>
               <div className="">
                 {isSaleOn && (
                   <div>
