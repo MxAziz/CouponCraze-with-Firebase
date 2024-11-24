@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { IoMdHome } from "react-icons/io";
 import { TbBrandShopee } from "react-icons/tb";
@@ -10,12 +10,16 @@ import { toast } from "react-toastify";
 const Navbar = () => {
 
   const { user, signOutUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  console.log(user);
+
 
   const handleSignOut = () => {
     signOutUser()
       .then(() => {
         console.log('sign out successful');
         toast.info('Sign out successful');
+        navigate('/')
       })
       .catch(error => {
         console.log('ERROR:', error);
@@ -93,8 +97,12 @@ const Navbar = () => {
         <div className="navbar-end gap-4">
           {user ? (
             <>
-              {user.email}
-              <a onClick={handleSignOut} className="btn">SignOut</a>
+              <div className="flex flex-col justify-center items-center">
+                <img className="size-10 rounded-full" src={user.photoURL} />
+              </div>
+              <a onClick={handleSignOut} className="btn">
+                SignOut
+              </a>
             </>
           ) : (
             <>

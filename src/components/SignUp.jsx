@@ -3,6 +3,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { updateProfile } from "firebase/auth";
+import auth from "../firebase.config";
 
 const SignUp = () => {
 
@@ -24,11 +26,8 @@ const SignUp = () => {
 
     // reset error and status.
     setErrorMessage('');
-    // password validation
-    // if (password.length < 6) {
-    //   toast.warning("Length must be at least 6 character");
-    //   return;
-    // }
+
+      // password validation
     if (!passwordReg.test(password)) {
       toast.error(
         "Must have an Uppercase, a Lowercase and Length must be at least 6 character "
@@ -42,6 +41,18 @@ const SignUp = () => {
         e.target.reset();
         navigate('/');
         toast.success('Sign Up is successful');
+
+        // update user profile
+        const profile = {
+          photoURL: photo,
+          displayName: name,
+        };
+        updateProfile(auth.currentUser, profile)
+          .then(() => {
+            console.log('user profile updated');
+          })
+          .catch(error => console.log('user profile update error',error));
+
       })
       .catch(error => {
         console.log(error.message);
@@ -101,9 +112,6 @@ const SignUp = () => {
                   required
                 />
               </div>
-              {/* {errorMessage && (
-                <p className=" text-center text-red-600">{errorMessage}</p>
-              )} */}
               <div className="form-control ">
                 <label className="label">
                   <span className="label-text">Password</span>

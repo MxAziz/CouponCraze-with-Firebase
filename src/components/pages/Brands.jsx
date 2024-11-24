@@ -15,7 +15,7 @@ const Brands = () => {
           <input
             type="text"
             placeholder="Type here"
-            className="input input-bordered input-info w-full max-w-xs"
+            className="input input-bordered input-info md:w-full max-w-xs"
           />
           <button className="btn bg-[#6e2d5c] hover:bg-[#952876] text-white">Search</button>
             </div>

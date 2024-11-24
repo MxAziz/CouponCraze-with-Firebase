@@ -45,10 +45,8 @@ const Login = () => {
       return;
     }
 
-    // ইমেইলটি localStorage-এ সংরক্ষণ করুন
     localStorage.setItem("forgotEmail", email);
 
-    // Forgot Password পেজে রিডাইরেক্ট
     navigate("/forgot-password");
   };
 

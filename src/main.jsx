@@ -17,6 +17,7 @@ import PrivateRoute from './routes/PrivateRoute';
   import { ToastContainer } from "react-toastify";
   import "react-toastify/dist/ReactToastify.css";
 import ForgotPassword from './components/ForgotPassword';
+import UpdateUser from './components/UpdateUser';
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: "/forgot-password",
         element: <ForgotPassword></ForgotPassword>
+      },
+      {
+        path: '/updateUser',
+        element: <UpdateUser></UpdateUser>
       }
     ],
   },
