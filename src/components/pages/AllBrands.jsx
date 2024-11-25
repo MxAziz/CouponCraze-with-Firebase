@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import Brands from './Brands';
+import { AuthContext } from '../../provider/AuthProvider';
 
 
 const AllBrands = ({ allBrands }) => {
 
-    // console.log(allBrands);
+  const { user } = useContext(AuthContext);
+
+    console.log(user);
     const { _id, brand_logo, brand_name, description, isSaleOn, rating, } = allBrands;
 
     useEffect(() => {
@@ -15,7 +18,7 @@ const AllBrands = ({ allBrands }) => {
           duration: 1000,
           // once: true,
         });
-    },[])
+    }, [])
 
 
     return (
@@ -59,7 +62,7 @@ const AllBrands = ({ allBrands }) => {
             <p>{description}</p>
             <div className="card-actions justify-between">
               <Link
-                to={`/brands/${_id}`}
+                to={user ? `/brands/${_id}` : "/login"}
                 className="btn bg-[#82316b] hover:bg-[#952876] text-white"
               >
                 View Coupons

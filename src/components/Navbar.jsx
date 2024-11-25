@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { IoMdHome } from "react-icons/io";
 import { TbBrandShopee } from "react-icons/tb";
@@ -98,7 +98,28 @@ const Navbar = () => {
           {user ? (
             <>
               <div className="flex flex-col justify-center items-center">
-                <img className="size-10 rounded-full" src={user.photoURL} />
+                <div className="dropdown dropdown-hover">
+                  <div tabIndex={0} role="button" className=" m-1">
+                    <img className="size-10 rounded-full" src={user.photoURL} />
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 text-black shadow"
+                  >
+                    <li>
+                      <p className="text-xl font-bold">{user.displayName}</p>
+                    </li>
+                    <li>
+                      <p className=" font-semibold">{user.email}</p>
+                    </li>
+                    <Link
+                      className="btn bg-[#542547] hover:bg-[#7b3166] text-white"
+                      to={"/updateUser"}
+                    >
+                      Update Profile
+                    </Link>
+                  </ul>
+                </div>
               </div>
               <a onClick={handleSignOut} className="btn">
                 SignOut
@@ -117,11 +138,13 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      {
-        user && <>
-          <div className=" text-white text-center pb-3 font-bold text-xl">Welcome { user.displayName}</div>
+      {user && (
+        <>
+          <div className=" text-white text-center pb-3 font-bold text-xl">
+            Welcome {user.displayName}
+          </div>
         </>
-      }
+      )}
     </div>
   );
 };

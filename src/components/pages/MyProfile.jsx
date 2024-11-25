@@ -9,7 +9,7 @@ const MyProfile = () => {
 
 
     return (
-      <div className="mt-[100px]">
+      <div className="mt-[150px]">
         <div className="card bg-base-100 w-96 mx-auto shadow-xl">
           <div className=" min-h-[170px] bg-[#682254] rounded-t-xl text-white ">
             <p className="font-semibold text-xl text-center mt-8">
