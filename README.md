@@ -48,4 +48,12 @@ Let me know if you need any modifications or further instructions!
 
 2.Navigate to the project directory:
 ```bash
-cd CouponCraze
+  cd CouponCraze
+
+3. Install dependencies:
+   ```bash
+   npm install
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-link>
