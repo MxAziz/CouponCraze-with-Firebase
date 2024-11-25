@@ -35,6 +35,10 @@ The primary goal of CouponCraze is to make collecting and managing coupons more 
 
 ---
 
+## Author
+
+Developed By [Muhammad Aziz]
+
 ## Installation
 
 To set up the project locally, follow these steps:
@@ -48,12 +52,4 @@ Let me know if you need any modifications or further instructions!
 
 2.Navigate to the project directory:
 ```bash
-  cd CouponCraze
-
-3. Install dependencies:
-   ```bash
-   npm install
-
-1. Clone the repository:
-   ```bash
-   git clone <repository-link>
+   cd CouponCraze
