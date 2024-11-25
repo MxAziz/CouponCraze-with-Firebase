@@ -28,7 +28,6 @@ const BrandDetails = () => {
 
   const { brand_logo, brand_name, description, rating, shop_link, coupons } =
     singleBrand;
-    console.log(coupons[0]);
 
     return (
       <div className=" mt-[150px] w-4/5 mx-auto text-center">

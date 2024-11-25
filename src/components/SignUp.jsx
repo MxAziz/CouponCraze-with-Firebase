@@ -22,7 +22,7 @@ const SignUp = () => {
     const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(name, photo, email, password);
+    // console.log(name, photo, email, password);
 
     // reset error and status.
     setErrorMessage('');

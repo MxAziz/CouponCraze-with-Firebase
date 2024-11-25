@@ -10,7 +10,6 @@ const AllBrands = ({ allBrands }) => {
 
   const { user } = useContext(AuthContext);
 
-    console.log(user);
     const { _id, brand_logo, brand_name, description, isSaleOn, rating, } = allBrands;
 
 
