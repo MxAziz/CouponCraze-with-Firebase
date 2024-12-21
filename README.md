@@ -48,7 +48,7 @@ Let me know if you need any modifications or further instructions!
 
 1. Clone the repository:
    ```bash
-   git clone <repository-link>
+   git clone https://github.com/MxAziz/CouponCraze-with-Firebase.git
 
 2.Navigate to the project directory:
 ```bash
