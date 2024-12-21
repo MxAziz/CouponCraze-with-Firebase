@@ -5,8 +5,6 @@ import AllBrands from './AllBrands';
 const Brands = () => {
 
     const brandsItem = useLoaderData();
-    console.log(brandsItem);
-
 
     return (
       <div className="mt-[110px]">
